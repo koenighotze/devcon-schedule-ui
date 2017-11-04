@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import ScheduleData from './mockschedule';
+// import ScheduleData from './mockschedule';
 import PropTypes from 'prop-types';
 import './Schedule.css';
+import axios from 'axios';
 
 
 const renderDateStringAsTime = (datestring) => {
@@ -25,8 +26,26 @@ TalkRow.propTypes = {
 };
 
 class Schedule extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      talks: []
+    };
+  }
+
+  componentDidMount() {
+    axios.get('https://s3-eu-west-1.amazonaws.com/dschmitz/devcon/schedule/schedule.json')
+      .then(res => {
+        const talks = res.data.schedule;
+        this.setState({ talks });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   render() {
-    const talks = ScheduleData.schedule;
     return (
       <div className='schedule'>
         <table className='table'>
@@ -42,7 +61,7 @@ class Schedule extends Component {
           </thead>
           <tbody className='table-body'>
             {
-              talks.map( (talk, i) => <TalkRow key={i} talk={talk}/> )
+              this.state.talks.map( (talk, i) => <TalkRow key={i} talk={talk}/> )
             }
           </tbody>
         </table>
