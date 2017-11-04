@@ -1,0 +1,27 @@
+tbody > tr {
+  border-top: 1px solid rgb(236, 238, 239);
+}
+
+thead > tr {
+  border-bottom: 2px solid;
+}
+
+.schedule {
+  padding: 3em;
+  background-color: white;
+  line-height: 2em;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+
+.table {
+  border-collapse: collapse;
+  color: black;
+  font-family: Helvetica;
+}
+
+
+td {
+  padding: 1em;
+}

@@ -1,0 +1,24 @@
+{
+  "name": "devcon-schedule-ui",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "1.0.14"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "aws.clean": "aws s3 rb --force s3://dschmitz.devcon.ui",
+    "aws.setup.bucket": "aws s3 mb s3://dschmitz.devcon.ui && aws s3api put-bucket-tagging --bucket dschmitz.devcon.ui --tagging 'TagSet=[{Key=CostCenter,Value=Tecco}]'",
+    "aws.setup.site": "aws s3 website s3://dschmitz.devcon.ui/ --index-document index.html",
+    "aws.upload": "npm run build && aws s3 sync build/ s3://dschmitz.devcon.ui --acl public-read",
+    "aws.open": "open http://dschmitz.devcon.ui.s3-website-eu-west-1.amazonaws.com/"
+  }
+}
