@@ -16,8 +16,11 @@ const TalkRow = ( { talk: {startsAt, endsAt, title, speakers} } ) =>
       <td>{renderDateStringAsTime(endsAt)}</td>
       <td>{title}</td>
       <td>{speakers.join(', ')}</td>
-      <td>SPEAKBUTTON</td>
-      <td>GENERATEBUTTON</td>
+      <td>
+          <audio controls>
+            <source src={'https://s3-eu-west-1.amazonaws.com/dschmitz/devcon/speech/' + encodeURI(title) + '.mp3'} type="audio/mpeg"/>
+          </audio>
+      </td>
     </tr>;
 
 TalkRow.propTypes = {
@@ -53,8 +56,7 @@ class Schedule extends Component {
               <th>End</th>
               <th>Title</th>
               <th>Speaker</th>
-              <th>Tell me the summary</th>
-              <th>Generate summary</th>
+              <th>Summary</th>
             </tr>
           </thead>
           <tbody className='table-body'>
