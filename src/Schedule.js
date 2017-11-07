@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import './Schedule.css';
 import axios from 'axios';
 
-
 const renderDateStringAsTime = (datestring) => {
   const d = new Date(Date.parse(datestring));
   console.log(d);
@@ -35,10 +34,9 @@ class Schedule extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://s3-eu-west-1.amazonaws.com/dschmitz/devcon/schedule/schedule.json')
+    axios.get('https://ommq47nahb.execute-api.eu-west-1.amazonaws.com/prod/schedule', { crossdomain: true })
       .then(res => {
-        const talks = res.data.schedule;
-        this.setState({ talks });
+        this.setState({ talks: res.data.talks });
       })
       .catch(err => {
         console.log(err);
