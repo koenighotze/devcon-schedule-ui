@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import './App.css';
+// eslint-disable-next-line no-unused-vars
+import React, { Component } from 'react'
+import './App.css'
 import Schedule from './Schedule'
 
 class App extends Component {
@@ -12,8 +13,8 @@ class App extends Component {
         </header>
         <Schedule/>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

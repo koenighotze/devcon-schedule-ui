@@ -2,7 +2,9 @@ module.exports = {
     "env": {
         "browser": true,
         "commonjs": true,
-        "es6": true
+        "es6": true,
+        "node": true,
+        "jest": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
@@ -31,6 +33,8 @@ module.exports = {
         "semi": [
             "error",
             "never"
-        ]
+        ],
+        "no-console": ["error", { "allow": ["warn", "error"] }],
+        "react/jsx-uses-vars": 2
     }
 };
