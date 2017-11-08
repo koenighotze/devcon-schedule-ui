@@ -3,10 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "1.0.14"
+    "babel-jest": "^21.2.0",
+    "chai": "^4.1.2",
+    "eslint": "^4.10.0",
+    "eslint-plugin-react": "^7.4.0",
+    "istanbul": "^0.4.5",
+    "jest": "^21.2.1",
+    "mocha": "^4.0.1",
+    "react-scripts": "1.0.14",
+    "sinon": "^4.1.2"
   },
   "dependencies": {
     "axios": "^0.17.0",
+    "config": "^1.28.0",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
@@ -16,10 +25,17 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
+    "lint": "node_modules/.bin/eslint .",
     "aws.clean": "aws s3 rb --region eu-west-1 --force s3://dschmitz.devcon.ui",
     "aws.setup.bucket": "aws s3 mb s3://dschmitz.devcon.ui && aws s3api put-bucket-tagging --bucket dschmitz.devcon.ui --tagging 'TagSet=[{Key=CostCenter,Value=Tecco}]' --region eu-west-1",
     "aws.setup.site": "aws s3 website s3://dschmitz.devcon.ui/ --index-document index.html",
     "aws.upload": "npm run build && aws s3 sync build/ s3://dschmitz.devcon.ui --acl public-read --region eu-west-1",
     "aws.open": "open http://dschmitz.devcon.ui.s3-website-eu-west-1.amazonaws.com/"
-  }
+  },
+  "author": "David Schmitz",
+  "description": "React ui for Senacor Devcon Schedule",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:koenighotze/devcon-schedule-ui.git"
+  },
 }
