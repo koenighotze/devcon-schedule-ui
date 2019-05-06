@@ -19,7 +19,8 @@
     "config": "^1.28.0",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "snyk": "^1.161.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -31,12 +32,15 @@
     "aws.setup.bucket": "aws s3 mb s3://dschmitz.devcon.ui && aws s3api put-bucket-tagging --bucket dschmitz.devcon.ui --tagging 'TagSet=[{Key=CostCenter,Value=Tecco}]' --region eu-west-1",
     "aws.setup.site": "aws s3 website s3://dschmitz.devcon.ui/ --index-document index.html",
     "aws.upload": "npm run build && aws s3 sync build/ s3://dschmitz.devcon.ui --acl public-read --region eu-west-1",
-    "aws.open": "open http://dschmitz.devcon.ui.s3-website-eu-west-1.amazonaws.com/"
+    "aws.open": "open http://dschmitz.devcon.ui.s3-website-eu-west-1.amazonaws.com/",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "David Schmitz",
   "description": "React ui for Senacor Devcon Schedule",
   "repository": {
     "type": "git",
     "url": "git@github.com:koenighotze/devcon-schedule-ui.git"
-  }
+  },
+  "snyk": true
 }
